@@ -11,16 +11,32 @@
 </head>
 <body>
     @auth
-    <nav class="nav d-flex justify-content-between p-2" style="background-color: #343a40;">
-        <div class="d-flex row ml-1">
-            <span class="navbar-brand mb-0 p-1 h1" style="background-color: white; border-radius: 2px;">{{Auth::user()->name}}</span>
-            <a class="nav-link active" style="color: white;" href="/painel">Início</a>
-            @can('is_admin')
-            <a class="nav-link active" style="color: white;" href="/usuarios">Usuários</a>
-            @endcan
-            <a class="nav-link active" style="color: white;" href="/clientes">Clientes</a>
-        </div>
-        <a class="nav-link" style="color: white;" href="/sair">Sair</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <span class="navbar-brand mb-0 p-1 h1" style="color:#343a40; background-color: white; border-radius: 2px;">
+    {{Auth::user()->name}}
+    </span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-link active">
+            <a class="nav-link" href="/painel">Início</a>
+        </li>
+        @can('is_admin')
+        <li class="nav-link active">
+            <a class="nav-link" href="/usuarios">Usuários</a>
+        </li>
+        @endcan
+        <li class="nav-link active">
+            <a class="nav-link" href="/clientes">Clientes</a>
+        </li>
+        </ul>
+
+        <button class="btn btn-outline-secondary btn-sm my-2 my-sm-0">
+            <a class="nav-link active" style="color: white;" href="/sair">Sair</a>
+        </button>
+    </div>
     </nav>
     @endauth
 
@@ -36,4 +52,8 @@
         @yield('conteudo')
     </div>   
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
 </html>
