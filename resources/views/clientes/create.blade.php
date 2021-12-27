@@ -4,9 +4,7 @@
     Novo cliente
 @endsection
 
-@section('scripts')
 
-@endsection
 
 @section('cabecalho')
     <h1>Adicionar cliente</h1>
@@ -41,7 +39,7 @@
             <label for="telefone">Telefone - Insira apenas os números com DDD</label>
             <input
                     type="text"
-                    class="form-control"
+                    class="form-control telefone"
                     name="telefone"
                     placeholder="Telefone - Apenas os números"
                     value="{{isset($cliente) ? $cliente->telefone : ''}}">
@@ -61,7 +59,7 @@
                 <label for="cnpj">CNPJ - Insira apenas os números</label>
                 <input
                         type="text"
-                        class="form-control"
+                        class="form-control cnpj"
                         name="cnpj"
                         placeholder="CNPJ - Apenas os números"
                         value="{{isset($cliente) ? $cliente->cnpj : ''}}">
@@ -116,7 +114,20 @@
         <button type="submit" class="btn btn-primary">Salvar</button>
 
     </form>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>  
-    <script src="{{asset('js/localidades.js')}}"></script>
+@endsection
 
+@section("script")
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"
+    integrity="sha256-yE5LLp5HSQ/z+hJeCqkz9hdjNkk1jaiGG0tDCraumnA=" crossorigin="anonymous"></script>
+<script src="{{asset('js/localidades.js')}}"></script>
+<script>
+    $(document).ready(function($) {
+        $('.telefone').mask('(00)00000-0000');
+    });
+
+    $(document).ready(function($) {
+        $('.cnpj').mask('00.000.000/0000-00');
+    });
+</script>
 @endsection
