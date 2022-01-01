@@ -84,6 +84,10 @@ Route::get('/usuarios', [UsuariosController::class, 'index'])
     ->middleware('autenticador')
     ->name('lista_usuarios');
 
+//rota para lisatagem com filtros
+Route::get('/usuarios/filtro', [UsuariosController::class, 'filtrar'])
+    ->middleware('autenticador');
+
 Route::get('/usuarios/inativo', [UsuariosController::class, 'index'])
     ->middleware('autenticador');    
 

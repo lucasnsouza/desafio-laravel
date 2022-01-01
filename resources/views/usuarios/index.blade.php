@@ -18,6 +18,27 @@
         </div>
     @endif
 
+    <form class="form-inline" action="/usuarios/filtro" method="GET">
+        <div class="input-group mb-2">
+            <select class="custom-select" id="filtro" name="filtro">
+                <option selected value="all">Fitros</option>
+                <option value="name">Nome</option>
+                <option value="state">Estado</option>
+                <option value="city">Cidade</option>
+                <option value="situation">Situação</option>
+            </select>
+        </div>    
+
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+            <input type="search" name="buscador" id="buscador" class="form-control" placeholder="Buscar"/>
+            </div>
+            <button type="submit" class="btn" style="background-color: #343A40; color: white;">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </form>
+
     <table class="table">
         <thead>
             <tr>

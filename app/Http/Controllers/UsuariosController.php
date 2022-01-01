@@ -39,4 +39,17 @@ class UsuariosController extends Controller
         return view('cadastro.create', compact('user'));
     }
 
+    public function filtrar(Request $request)
+    {
+        $filtro = $request->filtro;
+        $coluna = $request->buscador;
+        if ($filtro === 'all') {
+            $users = User::query()->paginate(8);
+        } else {
+            $users = User::where($filtro, "LIKE", '%' . $coluna . '%')->paginate(5);
+        }
+        
+        return view('usuarios.index', compact('filtro', 'coluna', 'users'));
+    }
+
 }
