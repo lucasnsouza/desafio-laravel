@@ -91,4 +91,18 @@ class ClientesController extends Controller
 
         return view('clientes.create', compact('cliente'));
     }
+
+    public function filtrar(Request $request)
+    {
+        $filtro = $request->filtro;
+        $coluna = $request->buscador;
+
+        if($filtro === 'all') {
+            $clientes = Cliente::query()->paginate(6);
+        }  else {
+            $clientes = Cliente::where($filtro, "LIKE", '%' . $coluna . '%')->paginate(6);
+        }
+
+        return view('clientes.index', compact('filtro', 'coluna', 'clientes'));
+    }
 }

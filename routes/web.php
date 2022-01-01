@@ -32,6 +32,10 @@ Route::get('/clientes', [ClientesController::class, 'index'])
     ->middleware('autenticador')
     ->name('listar_clientes');
 
+//rota com filtro de clientes
+Route::get('/clientes/filtro', [ClientesController::class, 'filtrar'])
+    ->middleware('autenticador');    
+
 Route::get('/clientes/criar', [ClientesController::class, 'create'])
     ->middleware('autenticador')
     ->name('form_novo_cliente');
