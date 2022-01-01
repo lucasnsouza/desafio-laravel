@@ -24,6 +24,8 @@
             <th scope="col">Nome</th>
             <th scope="col">Telefone</th>
             <th scope="col">Email</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Cidade</th>
             <th scope="col">Situação</th>
             <th scope="col"></th>
             </tr>
@@ -34,6 +36,8 @@
             <th scope="row">{{$user->name}}</th>
             <td>{{$user->phone}}</td>
             <td>{{$user->email}}</td>
+            <td>{{$user->state}}</td>
+            <td>{{$user->city}}</td>
             <td>{{$user->situation}}</td>
             <td class="d-flex">
                 <a href="/usuarios/{{$user->id}}/exibir" class="btn btn-info btn-sm mr-1">

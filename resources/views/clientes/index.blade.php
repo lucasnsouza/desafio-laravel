@@ -25,6 +25,8 @@
             <th scope="col">Telefone</th>
             <th scope="col">Email</th>
             <th scope="col">Situação</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Cidade</th>
             <th scope="col"></th>
             </tr>
         </thead>
@@ -35,6 +37,8 @@
             <td>{{$cliente->telefone}}</td>
             <td>{{$cliente->email}}</td>
             <td>{{$cliente->situacao}}</td>
+            <td>{{$cliente->estado}}</td>
+            <td>{{$cliente->cidade}}</td>
             <td class="d-flex">
                 <a href="/clientes/{{$cliente->id}}/exibir" class="btn btn-info btn-sm mr-1">
                     <i class="fas fa-external-link-alt"></i>
