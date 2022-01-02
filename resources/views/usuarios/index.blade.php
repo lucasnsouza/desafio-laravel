@@ -78,6 +78,6 @@
         @endforeach
     </table>
     <div class="d-flex justify-content-center">
-        {{$users->links()}}
+    {{$users->appends(["filtro" => isset($filtro) ? $filtro : " ", "coluna" => isset($coluna)? $coluna : " "])->links()}}
     </div>
 @endsection
